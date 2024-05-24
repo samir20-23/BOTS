@@ -1,7 +1,0 @@
-1: install    "node.js"      ==>        //in www.node.js.com ;
-2: check install commend prompt 'node -v';
-3: check npm commend prompt     'npm -v' ;
-4: creat file code in commend prompt "mkdir 'name x' ";
-5: prepare file commend prompt 'rpm init -y';
-6: instal file puppeteer commend prompt'npm install puppeteer';
-7: creat in you file 'name x' file 'index.js';
