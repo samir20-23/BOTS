@@ -1,0 +1,50 @@
+1:mkdir facebook-bot
+2:cd facebook-bot
+3:npm init -y
+4:npm install puppeteer
+
+
+5:creat index.js;
+6:code in index.js :(
+    const puppeteer = require('puppeteer');
+
+(async () => {
+    // إعداد المتصفح وفتح نافذة جديدة
+    const browser = await puppeteer.launch({ headless: false });
+    const page = await browser.newPage();
+
+    // الذهاب إلى فيسبوك وتسجيل الدخول
+    await page.goto('https://www.facebook.com');
+    await page.type('#email', 'your_email');
+    await page.type('#pass', 'your_password');
+    await page.click('#loginbutton');
+    await page.waitForNavigation();
+
+    // البحث عن المستخدمين المهتمين بتصميم المواقع
+    await page.goto('https://www.facebook.com/search/top?q=web%20design');
+
+    // جمع معلومات المستخدمين
+    const customers = await page.evaluate(() => {
+        const items = document.querySelectorAll('.some-customer-selector'); // تحتاج إلى تعديل selector بما يتناسب مع التصميم الحالي
+        return Array.from(items).map(item => ({
+            name: item.querySelector('.customer-name').innerText,
+            profileLink: item.querySelector('a').href
+        }));
+    });
+
+    console.log(customers);
+
+    // إرسال رسائل للمستخدمين
+    for (const customer of customers) {
+        await page.goto(customer.profileLink);
+        await page.click('button[data-testid="message-button"]');
+        await page.waitForSelector('div[aria-label="Message"]');
+        await page.type('div[aria-label="Message"]', 'Hello, I noticed you are interested in web design services. How can I assist you?');
+        await page.click('button[type="submit"]');
+        await page.waitForTimeout(5000); // الانتظار قليلاً بين إرسال الرسائل لتجنب الحظر
+    }
+
+    await browser.close();
+})();
+
+)
