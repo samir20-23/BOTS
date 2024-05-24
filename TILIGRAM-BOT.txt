@@ -1,0 +1,22 @@
+1:creat file ;
+2:Command Prompt 'cd path\to\your\project';
+3:Command Prompt 'npm install node-telegram-bot-api';
+4:creat file index.js in path\to\your\project ;
+5:code=>(
+    const TelegramBot = require('node-telegram-bot-api');
+
+
+const token = '6860988596:AAGBwyEgoqO25XrirGlbQYNPKBkZ8zO2SEc';
+
+
+const bot = new TelegramBot(token, { polling: true });
+
+// use messages
+bot.on('message', (msg) => {
+  const chatId = msg.chat.id;
+
+  // send messages
+  bot.sendMessage(chatId, 'hy thanks you');
+});
+
+)
