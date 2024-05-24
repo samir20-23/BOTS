@@ -4,21 +4,22 @@
 4:creat file index.js in path\to\your\project ;
 5:code=>(
     const TelegramBot = require('node-telegram-bot-api');
-
-
-const token = '6860988596:AAGBwyEgoqO25XrirGlbQYNPKBkZ8zO2SEc';
-
-
-const bot = new TelegramBot(token, { polling: true });
-
-// use messages
-bot.on('message', (msg) => {
-  const chatId = msg.chat.id;
-
-  // send messages
-  bot.sendMessage(chatId, 'hy thanks you');
-});
-
+    const token = '6860988596:AAGBwyEgoqO25XrirGlbQYNPKBkZ8zO2SEc';
+    const bot = new TelegramBot(token, { polling: true });
+    // use messages
+    bot.on('message', (msg) => {
+      const chatId = msg.chat.id;
+      // send messages
+       bot.sendMessage(chatId, 'hy thanks you');
+       });
 )
+6: restart bot node index.js
+7: aouto save index.js Command Prompt 'npm install -g nodemon';
+8: always ONLINE BOT Commend Prompt 'npm install -g mp2';
+   : "mp2 start imdex.js";
+   : "mp2 stop imdex.js"; 
+   : "mp2 restart imdex.js"; 
+   : "mp2 status imdex.js"; 
+9: 
 
-6: aouto save => Command Prompt' npm install -g nodemon '
+
