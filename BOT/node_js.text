@@ -1,0 +1,4 @@
+1: install    "node.js"      ==>        //in www.node.js.com ;
+2: check install commend prompt 'node -v';
+3: check npm commend prompt     'npm -v' ;
+4: creat file code in commend prompt "mkdir 'name x' ";
