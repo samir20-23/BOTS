@@ -20,3 +20,5 @@ bot.on('message', (msg) => {
 });
 
 )
+
+6: aouto save => Command Prompt' npm install -g nodemon '
